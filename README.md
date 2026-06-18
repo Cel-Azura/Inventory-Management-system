@@ -64,27 +64,37 @@ The project demonstrates the practical application of:
 
 ---
 
+
+````markdown
 ## System Architecture
 
-IMS V2 adopts a Microservices Architecture consisting of independently deployable services connected through an API Gateway.
+```mermaid
+graph TD
+    Browser[Browser]
+    Frontend[Frontend - Nginx]
+    Gateway[API Gateway]
 
-```text
-Browser
-   ?
-   ?
-Frontend (Nginx)
-   ?
-   ?
-API Gateway
-   ?
-   ??? Auth Service
-   ??? Product Service
-   ??? Transaction Service
-   ??? Report Service
-            ?
-            ?
-       PostgreSQL
-```
+    Auth[Auth Service]
+    Product[Product Service]
+    Transaction[Transaction Service]
+    Report[Report Service]
+
+    DB[(PostgreSQL)]
+
+    Browser --> Frontend
+    Frontend --> Gateway
+
+    Gateway --> Auth
+    Gateway --> Product
+    Gateway --> Transaction
+    Gateway --> Report
+
+    Auth --> DB
+    Product --> DB
+    Transaction --> DB
+    Report --> DB
+
+---
 
 ### Architecture Highlights
 
@@ -130,37 +140,33 @@ API Gateway
 - C4 Model
 - ADR Documentation
 
----
-
 ## Project Structure
 
 ```text
 IMS_V2
-?
-??? database
-?   ??? init.sql
-?
-??? frontend
-?   ??? index.html
-?   ??? app.js
-?   ??? style.css
-?   ??? nginx.conf
-?
-??? services
-?   ??? api-gateway
-?   ??? auth-service
-?   ??? product-service
-?   ??? transaction-service
-?   ??? report-service
-?
-??? docs
-?
-??? docker-compose.yml
-??? README.md
+|
+|-- database
+|   |-- init.sql
+|
+|-- frontend
+|   |-- index.html
+|   |-- app.js
+|   |-- style.css
+|   |-- nginx.conf
+|
+|-- services
+|   |-- api-gateway
+|   |-- auth-service
+|   |-- product-service
+|   |-- transaction-service
+|   |-- report-service
+|
+|-- docs
+|
+|-- docker-compose.yml
+|
+|-- README.md
 ```
-
----
-
 ## Functional Modules
 
 | Module | Description |
