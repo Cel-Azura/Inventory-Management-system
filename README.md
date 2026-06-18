@@ -61,11 +61,6 @@ The project demonstrates the practical application of:
 - Inventory KPI reporting
 - Transaction summaries
 - Dashboard analytics
-
----
-
-
-````markdown
 ## System Architecture
 
 ```mermaid
@@ -93,6 +88,7 @@ graph TD
     Product --> DB
     Transaction --> DB
     Report --> DB
+```
 
 ---
 
@@ -103,9 +99,6 @@ graph TD
 - Shared PostgreSQL database
 - Docker-based deployment
 - RESTful inter-service communication
-
----
-
 ## Technology Stack
 
 ### Backend
