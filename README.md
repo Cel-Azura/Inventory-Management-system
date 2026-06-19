@@ -274,6 +274,7 @@ This project includes:
 - C4 Level 1 – System Context Diagram
 - C4 Level 2 – Container Diagram
 - C4 Level 3 – Component Diagram
+- C4 Level 4 – Code Diagram of product-service
 - ERD
 - Class Diagram
 - Sequence Diagrams
